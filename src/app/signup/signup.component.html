@@ -1,0 +1,132 @@
+<form [formGroup]="userForm">
+  <section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+              
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <input type="text" id="firstName" name="fname" placeholder="First Name" formControlName="fname" class="form-control form-control-lg" />
+                      <label class="form-label" for="firstName">First Name</label><br>
+                      <span style="color:red" *ngIf="first && first.invalid && first.touched">Enter FirstName</span>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <input type="text" id="lastName" name="lname" placeholder="Last Name" formControlName="lname" class="form-control form-control-lg" />
+                      <label class="form-label" for="lastName">Last Name</label><br>
+                      <span style="color:red" *ngIf="last && last.invalid && last.touched">Enter lastName</span>
+                    </div>
+  
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+    
+                      <div class="form-outline">
+                        <input type="email" id="emailAddress" placeholder="Email" (blur)="emailIdByString($any($event.target).value)" #e name="email" formControlName="email" class="form-control form-control-lg" />
+                        <label class="form-label" for="emailAddress">Email</label><br>
+                        <span style="color:red" *ngIf="em && em.invalid && em.touched">Enter valid emailid</span>
+                      </div>
+    
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+    
+                      <div class="form-outline">
+                        <input type="tel" id="phoneNumber" name="phno" placeholder="Phone Number" formControlName="phno" class="form-control form-control-lg" />
+                        <label class="form-label" for="phoneNumber">Phone Number</label><br>
+                        <span style="color:red" *ngIf="ph && ph.invalid && ph.touched">Enter Valid Phone number </span>
+                      </div>
+    
+                    </div>
+                  </div>
+                  
+                <div class="row">
+                  <div class="col-md-6 mb-4 d-flex align-items-center">
+  
+                    <div class="form-outline datepicker w-100">
+                      <input type="date" name="dob" formControlName="dob" class="form-control form-control-lg" id="birthdayDate" />
+                      <label for="birthdayDate" class="form-label">DOB</label>
+                      <span style="color:red" *ngIf="date && date.invalid && date.touched">Enter Valid Date of birth </span>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <h6 class="mb-2 pb-1 fs-5">Gender: </h6>
+  
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gender" formControlName="gender" id="femaleGender"
+                        value="option1" checked />
+                      <label class="form-check-label" for="femaleGender">Female</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gender"  id="maleGender"
+                        value="option2" />
+                      <label class="form-check-label" for="maleGender">Male</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gender" formControlName="gender" id="otherGender"
+                        value="option3" />
+                      <label class="form-check-label" for="otherGender">Other</label>
+                    </div>
+  
+                  </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-6 mb-4">
+  
+                        <select class="select form-control-lg" name="countryId" formControlName="countryId"
+                        (change)="stateNameById($any($event.target).value)"
+                        ><option value="1" disabled>Country</option>
+                        <option *ngFor="let count of cntry |keyvalue"[value]="count.key">{{count.value}}</option>
+                        </select><br>
+                        <label class="form-label select-label">Country</label>
+  
+                  </div>
+                    <div class="col-6 mb-4">
+  
+                      <select class="select form-control-lg" name="stateId" formControlName="stateId"
+                      (change)="cityNameById($any($event.target).value)">
+                      <option value="1" disabled>State</option>
+                        <option *ngFor="let state of states |keyvalue"[value]="state.key">{{state.value}}</option>
+                      </select><br>
+                      <label class="form-label select-label">Choose option</label>
+  
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <select class="select form-control-lg" name="cityId" formControlName="cityId">
+                        <option value="1" disabled>City</option>
+                        <option *ngFor="let city of cities|keyvalue" [value]="city.key">{{city.value}}</option>
+                      </select><br>
+                      <label class="form-label select-label">City</label>
+  
+                    </div>
+                  </div>
+               
+                <div class="d-flex justify-content-end spt-3 ">
+                  <button type="button" class="btn btn-success btn-lg ms-2s" btntype="button" (click)="userData()" >Submit</button>
+                  <button type="button" class="btn btn-danger btn-lg ms-2s">Reset all</button>
+                </div>
+  
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>

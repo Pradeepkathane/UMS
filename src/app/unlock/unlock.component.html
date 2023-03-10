@@ -1,0 +1,30 @@
+<div class="container mt-3 " >
+    <h3>Unlock Account</h3>
+    <form [formGroup]="ul">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <br>
+        <input type="email" class="form-control" name="email" formControlName="email" id="email" placeholder="Enter Email">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="unlockCode">Temporary Password</label>
+        <br>
+        <input type="text" class="form-control" id="unlockCode" name="tempPwd" formControlName="tempPwd" placeholder="Enter Unlock Code">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="newpassword">New Password</label>
+        <br>
+        <input type="text" class="form-control" id="newpassword" name="newPwd" formControlName="newPwd" placeholder="Enter New Password">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="confirmpassword">confirm Password</label>
+        <br>
+        <input type="text" class="form-control" id="confirmpassword" name="confirmPwd" formControlName="confirmPwd" placeholder="confirm password">
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary" (click)=" unlockAcc()">Submit</button>
+    </form>
+  </div>

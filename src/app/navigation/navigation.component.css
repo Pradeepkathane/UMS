@@ -1,0 +1,11 @@
+.navbar-brand {
+    font-weight: bold;
+  }
+  
+  .navbar-nav {
+    margin-left: auto;
+  }
+  
+  .nav-link {
+    margin-left: 10px;
+  }
